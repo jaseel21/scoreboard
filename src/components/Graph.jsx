@@ -36,7 +36,7 @@ function Graph() {
           "rgba(54, 162, 235, 0.6)", // Blue
           "rgba(75, 192, 192, 0.6)", // Green
         ],
-        barThickness: 50, // Bar width
+        barThickness: 100, // Bar width
       },
     ],
   };
@@ -92,40 +92,55 @@ function Graph() {
   let array =[faqriyya,nizamiyya,maqbariyya]
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-mono font-bold text-gray-800 mb-16">Mehrajan 2024</h1>
-      <div className="w-full max-w-4xl h-[400px] bg-white rounded-lg shadow-md p-6 relative">
+    <div className="relative min-h-screen flex flex-col items-center justify-center  bg-gray-100">
+      <div className=" flex flex-col items-center justify-center bg-gray-100">
+       {/* Logo placeholder */}
+       <div className=" mb-2    justify-center ">
+         {/* Replace the src with your program logo when ready */}
+         {/* <img 
+           src="/logo.svg"
+           alt="Meharjan-2024 Logo" 
+           className="w-24 h-24 object-cover rounded-full shadow-lg" 
+         /> */}
+       </div>
+       <h1 className="text-gray-800 mb-16 text-2xl font-light pb-3">Meharjan-2024</h1>
+  
+       {/* Event Title */}
+  
+    
+     </div>
+      <div className=" max-w-7xl h-[700px] w-full bg-white rounded-lg shadow-md p-6 relative">
         {/* Animated emojis positioned dynamically */}
         {emojiPositions.map((position, index) => {
-          const scores = data.datasets[0].data;
-          const score = scores[index];
+  const scores = data.datasets[0].data;
+  const score = scores[index];
 
-          // Determine which emoji to display based on the score
-          let emojiSrc;
+  // Determine which emoji to display based on the score
+  let emojiSrc;
 
-          if (score === Math.max(...scores)) {
-            emojiSrc = "https://media.tenor.com/lKO2y9bmZhUAAAAi/smile-emoji-smile.gif"; // Smiling emoji
-          } else if (score === Math.min(...scores)) {
-            emojiSrc = "https://media.tenor.com/yoMMbzDjFl4AAAAj/crying-emoji.gif"; // Crying emoji
-          } else {
-            emojiSrc = "https://media.tenor.com/sKDzNg2OwAsAAAAi/sad-face-emoji.gif"; // Sad emoji
-          }
+  if (score === Math.max(...scores)) {
+    emojiSrc = "https://media.tenor.com/lKO2y9bmZhUAAAAi/smile-emoji-smile.gif"; // Smiling emoji
+  } else if (score === Math.min(...scores)) {
+    emojiSrc = "https://media.tenor.com/yoMMbzDjFl4AAAAj/crying-emoji.gif"; // Crying emoji
+  } else {
+    emojiSrc = "https://media.tenor.com/sKDzNg2OwAsAAAAi/sad-face-emoji.gif"; // Sad emoji
+  }
 
-          return (
-            <div
-              key={index}
-              className="absolute animate-bounce"
-              style={{
-                left: position.left,
-                top: position.top,
-                transform: "translate(-50%, -100%)", // Center above bar
-              }}
-            >
-              <h1 className="text-end font-bold" >{array[index]}</h1>
-              <img src={emojiSrc} alt="Emoji" style={{ width: 50, height: 50 }} />
-            </div>
-          );
-        })}
+  return (
+    <div
+      key={index}
+      className="absolute animate-bounce flex flex-col items-center"
+      style={{
+        left: position.left, // Center horizontally
+        top: position.top - 40, // Adjust vertically above the bar
+        transform: "translate(-50%, -50%)", // Center relative to the position
+      }}
+    >
+      <h1 className="text-center font-serif  text-gray-700">{array[index]}</h1>
+      <img className="ml-[-20px] mr-[80px] " src={emojiSrc} alt="Emoji" style={{ width: 80, height: 80 }} />
+    </div>
+  );
+})}
         <Bar ref={chartRef} data={data} options={options} />
       </div>
     </div>
