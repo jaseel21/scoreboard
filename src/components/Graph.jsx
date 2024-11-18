@@ -52,17 +52,27 @@ function Graph() {
     },
     scales: {
       x: {
+        ticks: {
+          font: {
+            size: 18, // Set font size for x-axis labels
+          },
+          color: "#000", // Optional: Set the label color
+        },
         grid: {
-          display: false,
+          display: false, // Hide grid lines on x-axis
         },
       },
       y: {
-        beginAtZero: true,
         ticks: {
-          stepSize: 10,
+          font: {
+            size: 18, // Set font size for y-axis labels
+          },
+          color: "gray", // Optional: Set the label color
         },
+        beginAtZero: true,
       },
     },
+
     animation: {
       onComplete: () => {
         // Get the chart instance and calculate the positions for the emojis
@@ -136,7 +146,7 @@ function Graph() {
         transform: "translate(-50%, -50%)", // Center relative to the position
       }}
     >
-      <h1 className="text-center font-serif  text-gray-700">{array[index]}</h1>
+      <h1 className="text-center font-serif text-2xl  text-gray-700">{array[index]}</h1>
       <img className="ml-[-20px] mr-[80px] " src={emojiSrc} alt="Emoji" style={{ width: 80, height: 80 }} />
     </div>
   );
