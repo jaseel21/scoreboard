@@ -5,9 +5,9 @@ export const DataOfOne = createContext();
 
 // Provider component
 export const DataProvider = ({ children }) => {
-  const [nizamiyya, setNizamiyya] = useState(0);
-  const [faqriyya, setFaqriyya] = useState(0);
-  const [maqbariyya, setMaqbariyya] = useState(0);
+  const [faqriyya, setFaqriyya] = useState(60);
+  const [nizamiyya, setNizamiyya] = useState(110);
+  const [maqbariyya, setMaqbariyya] = useState(30);
 
   // Function to update scores dynamically
   const updateScores = (n, f, m) => {

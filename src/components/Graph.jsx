@@ -89,10 +89,11 @@ function Graph() {
     setEmojiPositions([]); // Clear previous positions to update for the new values
   }, [nizamiyya, faqriyya, maqbariyya]); // Run effect when any of the context values change
 
+  let array =[faqriyya,nizamiyya,maqbariyya]
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-2xl font-mono font-bold text-gray-800 mb-6">Mehrajan 2024</h1>
-      <h1>{nizamiyya}</h1>
+      <h1 className="text-3xl font-mono font-bold text-gray-800 mb-16">Mehrajan 2024</h1>
       <div className="w-full max-w-4xl h-[400px] bg-white rounded-lg shadow-md p-6 relative">
         {/* Animated emojis positioned dynamically */}
         {emojiPositions.map((position, index) => {
@@ -120,6 +121,7 @@ function Graph() {
                 transform: "translate(-50%, -100%)", // Center above bar
               }}
             >
+              <h1 className="text-end font-bold" >{array[index]}</h1>
               <img src={emojiSrc} alt="Emoji" style={{ width: 50, height: 50 }} />
             </div>
           );
