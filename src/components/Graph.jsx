@@ -56,7 +56,7 @@ function Graph() {
           font: {
             size: 18, // Set font size for x-axis labels
           },
-          color: "#000", // Optional: Set the label color
+          color: "#676464", // Optional: Set the label color
         },
         grid: {
           display: false, // Hide grid lines on x-axis
@@ -146,7 +146,7 @@ function Graph() {
         transform: "translate(-50%, -50%)", // Center relative to the position
       }}
     >
-      <h1 className="text-center font-serif text-2xl  text-gray-700">{array[index]}</h1>
+      <h1 className="text-center font-serif text-xl   text-gray-700">{array[index]}</h1>
       <img className="ml-[-20px] mr-[80px] " src={emojiSrc} alt="Emoji" style={{ width: 80, height: 80 }} />
     </div>
   );
